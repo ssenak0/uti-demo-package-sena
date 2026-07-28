@@ -5,7 +5,7 @@ from sdks.novavision.src.base.model import Package, Image, Inputs, Configs, Outp
 class InputImageOne(Input):
     name: Literal["inputImageOne"] = "inputImageOne"
     value: Union[List[Image], Image]
-    type: Literal["object"] = "object"
+    type: str = "object"
 
     @validator("type",pre=True, always=True)
     def set_type_based_on_value(cls,value,values):
@@ -22,7 +22,7 @@ class InputImageOne(Input):
 class InputImageTwo(Input):
     name: Literal["inputImageTwo"] = "inputImageTwo"
     value: Union[List[Image], Image]
-    type: Literal["object"] = "object"
+    type: str = "object"
 
 
     @validator("type",pre=True, always=True)
@@ -40,7 +40,7 @@ class InputImageTwo(Input):
 class OutputImageOne(Output):
     name: Literal["outputImageOne"] = "outputImageOne"
     value: Union[List[Image], Image]
-    type: Literal["object"] = "object"
+    type: str = "object"
 
     @validator("type",pre=True, always=True)
     def set_type_based_on_value(cls,value,values):
@@ -57,7 +57,7 @@ class OutputImageOne(Output):
 class OutputImageTwo(Output):
     name: Literal["outputImageTwo"] = "outputImageTwo"
     value: Union[List[Image], Image]
-    type: Literal["object"] = "object"
+    type: str = "object"
 
     @validator("type",pre=True, always=True)
     def set_type_based_on_value(cls,value,values):
@@ -104,7 +104,7 @@ class OptionABoolField(Config):
 
     class Config:
         title = "Boolean Field for A"
-        schema_extra = {
+        json_schema_extra = {
             "target": "value"
         }
 
@@ -154,9 +154,6 @@ class DemoDependentDropdown(Config):
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
     class Config:
         title = "Select Method"
-        schema_extra = {
-            "target": "value"
-        }
 
 
 
@@ -179,7 +176,9 @@ class ExecutorOneRequest(Request):
     inputs: Optional[ExecutorOneInputs]
     configs: ExecutorOneConfigs
     class Config:
-        schema_extra = {"target": "configs"}
+        json_schema_extra = {
+            "target": "configs"
+        }
 
 
 class ExecutorTwoRequest(Request):
@@ -187,7 +186,9 @@ class ExecutorTwoRequest(Request):
     configs: ExecutorTwoConfigs
 
     class Config:
-        schema_extra = {"target": "configs"}
+        json_schema_extra = {
+            "target": "configs"
+        }
 
 
 class ExecutorOneOutputs(Outputs):
@@ -210,7 +211,7 @@ class ExecutorOne(Config):
     field: Literal["option"] = "option"
     class Config:
         title = "ExecutorOne"
-        schema_extra = {
+        json_schema_extra = {
             "target": {
                 "value": 0
             }
@@ -223,14 +224,14 @@ class ExecutorTwo(Config):
     field: Literal["option"] = "option"
     class Config:
         title = "ExecutorTwo"
-        schema_extra = {
+        json_schema_extra = {
             "target": {
                 "value": 0
             }
         }
 
 class ConfigExecutor(Config):
-    name: Literal["executor"] = "executor"
+    name: Literal["ConfigExecutor"] = "ConfigExecutor"
     value: Union[ExecutorOne, ExecutorTwo]
     type: Literal["executor"] = "executor"
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
