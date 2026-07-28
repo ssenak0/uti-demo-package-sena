@@ -72,7 +72,7 @@ class OutputImageTwo(Output):
         title = "Result Output Image 2"
 
 class OptionAIntegerField(Config):
-    name: Literal["OptionAIntegerField"] = "OptionAIntegerField"
+    name: Literal["optionAIntegerField"] = "optionAIntegerField"
     value: int = Field(default=10)
     type: Literal["number"] = "number"
     field: Literal["textInput"] = "textInput"
@@ -97,7 +97,7 @@ class BoolOptionFalse(Config):
         title = "Disable"
 
 class OptionABoolField(Config):
-    name: Literal["OptionABoolField"] = "OptionABoolField"
+    name: Literal["optionABoolField"] = "optionABoolField"
     value: Union[BoolOptionTrue, BoolOptionFalse]
     type: Literal["object"] = "object"
     field: Literal["dropdownlist"] = "dropdownlist"
@@ -120,7 +120,7 @@ class OptionA(Config):
         title = "Method A"
 
 class OptionBFloatField(Config):
-    name: Literal["OptionBFloatField"] = "OptionBFloatField"
+    name: Literal["optionBFloatField"] = "optionBFloatField"
     value: float = Field(default=1.5)
     type: Literal["number"] = "number"
     field: Literal["textInput"] = "textInput"
@@ -129,7 +129,7 @@ class OptionBFloatField(Config):
         title = "Float Field for B"
 
 class OptionBStringField(Config):
-    name: Literal["OptionBStringField"] = "OptionBStringField"
+    name: Literal["optionBStringField"] = "optionBStringField"
     value: str = Field(default="default_string")
     type: Literal["string"] = "string"
     field: Literal["textInput"] = "textInput"
