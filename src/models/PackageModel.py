@@ -5,7 +5,7 @@ from sdks.novavision.src.base.model import Package, Image, Inputs, Configs, Outp
 class InputImageOne(Input):
     name: Literal["inputImageOne"] = "inputImageOne"
     value: Union[List[Image], Image]
-    type: Literal["object", "list"] = "object"
+    type: str = "object"
 
     @validator("type",pre=True, always=True)
     def set_type_based_on_value(cls,value,values):
@@ -22,7 +22,7 @@ class InputImageOne(Input):
 class InputImageTwo(Input):
     name: Literal["inputImageTwo"] = "inputImageTwo"
     value: Union[List[Image], Image]
-    type: Literal["object", "list"] = "object"
+    type: str = "object"
 
 
     @validator("type",pre=True, always=True)
@@ -40,7 +40,7 @@ class InputImageTwo(Input):
 class OutputImageOne(Output):
     name: Literal["outputImageOne"] = "outputImageOne"
     value: Union[List[Image], Image]
-    type: Literal["object", "list"] = "object"
+    type: str = "object"
 
     @validator("type",pre=True, always=True)
     def set_type_based_on_value(cls,value,values):
@@ -57,7 +57,7 @@ class OutputImageOne(Output):
 class OutputImageTwo(Output):
     name: Literal["outputImageTwo"] = "outputImageTwo"
     value: Union[List[Image], Image]
-    type: Literal["object", "list"] = "object"
+    type: str = "object"
 
     @validator("type",pre=True, always=True)
     def set_type_based_on_value(cls,value,values):
@@ -80,11 +80,27 @@ class OptionAIntegerField(Config):
     class Config:
         title = "Integer Field for A"
 
+class BoolOptionTrue(Config):
+    name: Literal["True"] = "True"
+    value: Literal[True] = True
+    type: Literal["bool"] = "bool"
+    field: Literal["option"] = "option"
+    class Config:
+        title = "Enable"
+
+class BoolOptionFalse(Config):
+    name: Literal["False"] = "False"
+    value: Literal[False] = False
+    type: Literal["bool"] = "bool"
+    field: Literal["option"] = "option"
+    class Config:
+        title = "Disable"
+
 class OptionABoolField(Config):
     name: Literal["OptionABoolField"] = "OptionABoolField"
-    value: bool = Field(default=True)
-    type: Literal["bool"] = "bool"
-    field: Literal["checkbox"] = "checkbox"
+    value: Union[BoolOptionTrue, BoolOptionFalse]
+    type: Literal["object"] = "object"
+    field: Literal["dropdownlist"] = "dropdownlist"
 
     class Config:
         title = "Boolean Field for A"
