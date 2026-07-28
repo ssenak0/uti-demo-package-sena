@@ -19,11 +19,11 @@ class ExecutorTwo(Component):
         self.method = self.request.get_param("demoDependentDropdown")
 
         if self.method == "OptionA":
-            self.val_int = self.request.get_param("OptionAIntegerField")
-            self.val_bool = self.request.get_param("OptionABoolField")
+            self.val_int = self.request.get_param("optionAIntegerField")
+            self.val_bool = self.request.get_param("optionABoolField")
         else:
-            self.val_float = self.request.get_param("OptionBFloatField")
-            self.val_string = self.request.get_param("OptionBStringField")
+            self.val_float = self.request.get_param("optionBFloatField")
+            self.val_string = self.request.get_param("optionBStringField")
 
     @staticmethod
     def bootstrap(config: dict) -> dict:
