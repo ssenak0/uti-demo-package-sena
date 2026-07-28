@@ -230,7 +230,7 @@ class ExecutorTwo(Config):
         }
 
 class ConfigExecutor(Config):
-    name: Literal["ConfigExecutor"] = "ConfigExecutor"
+    name: Literal["executor"] = "executor"
     value: Union[ExecutorOne, ExecutorTwo]
     type: Literal["executor"] = "executor"
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
