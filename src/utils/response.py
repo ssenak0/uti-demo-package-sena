@@ -1,5 +1,5 @@
 from sdks.novavision.src.helper.package import PackageHelper
-from novavision.demo_package.models.PackageModel import (
+from components.UtiDemoPackageSena.src.models.PackageModel import (
     PackageModel, PackageConfigs, ConfigExecutor, 
     ExecutorOne, ExecutorOneResponse, ExecutorOneOutputs, OutputImageOne,
     ExecutorTwo, ExecutorTwoResponse, ExecutorTwoOutputs, OutputImageTwo,

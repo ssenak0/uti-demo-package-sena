@@ -38,7 +38,7 @@ class InputImageTwo(Input):
         title = "Image Input 2"
 
 class OutputImageOne(Output):
-    name: Literal["outputImageOne"] = "outputImageOne"
+    name: Literal["OutputImageOne"] = "OutputImageOne"
     value: Union[List[Image], Image]
     type: str = "object"
 
@@ -55,7 +55,7 @@ class OutputImageOne(Output):
         title = "Result Output Image 1"
 
 class OutputImageTwo(Output):
-    name: Literal["outputImageTwo"] = "outputImageTwo"
+    name: Literal["OutputImageTwo"] = "OutputImageTwo"
     value: Union[List[Image], Image]
     type: str = "object"
 
@@ -72,7 +72,7 @@ class OutputImageTwo(Output):
         title = "Result Output Image 2"
 
 class OptionAIntegerField(Config):
-    name: Literal["optionAIntegerField"] = "optionAIntegerField"
+    name: Literal["OptionAIntegerField"] = "OptionAIntegerField"
     value: int = Field(default=10)
     type: Literal["number"] = "number"
     field: Literal["textInput"] = "textInput"
@@ -97,7 +97,7 @@ class BoolOptionFalse(Config):
         title = "Disable"
 
 class OptionABoolField(Config):
-    name: Literal["optionABoolField"] = "optionABoolField"
+    name: Literal["OptionABoolField"] = "OptionABoolField"
     value: Union[BoolOptionTrue, BoolOptionFalse]
     type: Literal["object"] = "object"
     field: Literal["dropdownlist"] = "dropdownlist"
@@ -120,7 +120,7 @@ class OptionA(Config):
         title = "Method A"
 
 class OptionBFloatField(Config):
-    name: Literal["optionBFloatField"] = "optionBFloatField"
+    name: Literal["OptionBFloatField"] = "OptionBFloatField"
     value: float = Field(default=1.5)
     type: Literal["number"] = "number"
     field: Literal["textInput"] = "textInput"
@@ -129,7 +129,7 @@ class OptionBFloatField(Config):
         title = "Float Field for B"
 
 class OptionBStringField(Config):
-    name: Literal["optionBStringField"] = "optionBStringField"
+    name: Literal["OptionBStringField"] = "OptionBStringField"
     value: str = Field(default="default_string")
     type: Literal["string"] = "string"
     field: Literal["textInput"] = "textInput"
@@ -148,7 +148,7 @@ class OptionB(Config):
         title = "Method B"
 
 class DemoDependentDropdown(Config):
-    name: Literal["demoDependentDropdown"] = "demoDependentDropdown"
+    name: Literal["DemoDependentDropdown"] = "DemoDependentDropdown"
     value: Union[OptionA, OptionB]
     type: Literal["object"] = "object"
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
