@@ -212,7 +212,7 @@ class ExecutorOne(Config):
         title = "ExecutorOne"
         schema_extra = {
             "target": {
-                "value": 1
+                "value": 0
             }
         }
 
@@ -225,7 +225,7 @@ class ExecutorTwo(Config):
         title = "ExecutorTwo"
         schema_extra = {
             "target": {
-                "value": 1
+                "value": 0
             }
         }
 
