@@ -104,6 +104,9 @@ class OptionABoolField(Config):
 
     class Config:
         title = "Boolean Field for A"
+        schema_extra = {
+            "target": "value"
+        }
 
 class OptionA(Config):
     name: Literal["OptionA"] = "OptionA"
@@ -151,6 +154,9 @@ class DemoDependentDropdown(Config):
     field: Literal["dependentDropdownlist"] = "dependentDropdownlist"
     class Config:
         title = "Select Method"
+        schema_extra = {
+            "target": "value"
+        }
 
 
 
