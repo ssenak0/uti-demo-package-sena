@@ -12,17 +12,23 @@ from novavision.demo_package.utils.response import build_response_one
 
 class ExecutorOne(Component):
     def __init__(self, request, bootstrap):
-        super().__init__(request, bootstrap)
-        self.request.model = PackageModel(**(self.request.data))
-        self.image_one = self.request.get_param("inputImageOne")
-        self.method = self.request.get_param("demoDependentDropdown")
-        
-        if self.method == "OptionA":
-            self.val_int = self.request.get_param("optionAIntegerField")
-            self.val_bool = self.request.get_param("optionABoolField")
-        else:
-            self.val_float = self.request.get_param("optionBFloatField")
-            self.val_string = self.request.get_param("optionBStringField")
+        try:
+            super().__init__(request, bootstrap)
+            self.request.model = PackageModel(**(self.request.data))
+            self.image_one = self.request.get_param("inputImageOne")
+            self.method = self.request.get_param("demoDependentDropdown")
+            
+            if self.method == "OptionA":
+                self.val_int = self.request.get_param("optionAIntegerField")
+                self.val_bool = self.request.get_param("optionABoolField")
+            else:
+                self.val_float = self.request.get_param("optionBFloatField")
+                self.val_string = self.request.get_param("optionBStringField")
+        except Exception as e:
+            import traceback
+            with open("/tmp/executor_error.log", "w") as f:
+                f.write(traceback.format_exc())
+            raise
 
     @staticmethod
     def bootstrap(config: dict) -> dict:
